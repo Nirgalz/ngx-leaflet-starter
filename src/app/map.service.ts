@@ -8,6 +8,7 @@ export class MapService {
   public map: L.Map;
   public baseMaps: any;
   private vtLayer: any;
+  public markers: any;
 
   constructor(private http: HttpClient) {
     const osmAttr =
@@ -99,7 +100,29 @@ export class MapService {
       })
       .addTo(this.map)
       .openPopup();
-
     marker.on("click", () => marker.remove());
+  }
+
+  updateMarkers(markers, map) {
+    console.log(map);
+    console.log(markers);
+    for (let i = 0; i < markers.length; i++) {
+      console.log(markers[i]);
+
+      const icon = L.icon({
+        iconUrl: "assets/marker-icon.png",
+        shadowUrl: "assets/marker-shadow.png"
+      });
+      const popup = `<div> ${markers[i].stories[0].title}<div>`;
+      const marker = L.marker([markers[i].lat, markers[i].lng], {
+        draggable: true,
+        icon
+      });
+      marker
+        .bindPopup(popup, {
+          offset: L.point(12, 6)
+        })
+        .addTo(map);
+    }
   }
 }

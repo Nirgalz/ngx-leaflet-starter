@@ -30,8 +30,9 @@ export class MapComponent implements OnInit {
 
         // default map location
         const location = new Location();
-        location.address = "New York City, New York, United States";
-        location.latlng = L.latLng(40.731253, -73.996139);
+        location.address =
+          "Lyon, Métropole de Lyon, Circonscription départementale du Rhône, Auvergne-Rhône-Alpes, France métropolitaine, France";
+        location.latlng = L.latLng(45.764, 4.8357);
 
         return Observable.of(location);
       })
@@ -51,6 +52,64 @@ export class MapComponent implements OnInit {
 
         this.address = location.address;
         this.mapService.map = map;
+
+        this.mapService.updateMarkers(dataSample, map);
       });
+
+    let dataSample = [
+      {
+        lat: 45.75702922677463,
+        lng: 4.83249843120575,
+        stories: [
+          {
+            id: 1,
+            title: "aux fleurs du sud",
+            description: "c'est blindé de fleurs",
+            content: "et tu peux en cueillir",
+            date: {
+              year: 2018,
+              month: 4,
+              day: 25
+            }
+          }
+        ]
+      },
+      {
+        lat: 45.75854877000632,
+        lng: 4.825798273086549,
+        stories: [
+          {
+            id: 1,
+            title: "Eglise évangélique du vieux lyon",
+            description: "ils y ont fait des orgies !",
+            content: "et y avait même des vaches :O",
+            date: {
+              year: -200,
+              month: 4,
+              day: 25
+            }
+          }
+        ]
+      },
+      {
+        lat: 45.759368407918835,
+        lng: 4.847566494192455,
+        stories: [
+          {
+            id: 1,
+            title: "A la place guichard on mangeait des quiches",
+            description:
+              "quiches au lard, au gruyère et au poivre d'andalousie",
+            content:
+              "il parait qu'il y avait aussi des morceaux de cadavres humains",
+            date: {
+              year: 2018,
+              month: 4,
+              day: 25
+            }
+          }
+        ]
+      }
+    ];
   }
 }
