@@ -9,11 +9,12 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { ToolbarComponent } from "./toolbar/toolbar.component";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 import { AppComponent } from "./app.component";
 import { NavigatorComponent } from "./navigator/navigator.component";
 import { MapComponent } from "./map/map.component";
-import { ToolbarComponent } from "./toolbar/toolbar.component";
 
 import { MapService } from "./map.service";
 import { GeocodingService } from "./geocoding.service";
@@ -25,6 +26,7 @@ import { environment } from "../environments/environment";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { AppRoutingModule } from ".//app-routing.module";
 import { StoriesComponent } from "./stories/stories.component";
+import { CreateStoryComponent } from "./create-story/create-story.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { StoriesComponent } from "./stories/stories.component";
     AppComponent,
     ToolbarComponent,
     SidebarComponent,
-    StoriesComponent
+    StoriesComponent,
+    CreateStoryComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { StoriesComponent } from "./stories/stories.component";
     MatTooltipModule,
     MatSnackBarModule,
     MatSidenavModule,
+    MatFormFieldModule,
     ServiceWorkerModule.register("/ngsw-worker.js", {
       enabled: environment.production
     }),
