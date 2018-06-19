@@ -24,6 +24,7 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { AppRoutingModule } from ".//app-routing.module";
+import { StoriesComponent } from "./stories/stories.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AppRoutingModule } from ".//app-routing.module";
     MapComponent,
     AppComponent,
     ToolbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    StoriesComponent
   ],
   imports: [
     BrowserModule,

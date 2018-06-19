@@ -43,7 +43,17 @@ export class MapComponent implements OnInit {
           zoom: 12,
           minZoom: 4,
           maxZoom: 19,
-          layers: [this.mapService.baseMaps.OpenStreetMap]
+          layers: [
+            L.tileLayer(
+              "http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+              {
+                zIndex: 1,
+                attribution:
+                  "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>, " +
+                  "Tiles courtesy of <a href='http://hot.openstreetmap.org/' target='_blank'>Humanitarian OpenStreetMap Team</a>"
+              }
+            )
+          ]
         });
 
         L.control.zoom({ position: "topright" }).addTo(map);
