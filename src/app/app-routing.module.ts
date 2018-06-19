@@ -1,8 +1,26 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { RouterModule, Routes } from "@angular/router";
+import { MapComponent } from "./map/map.component";
+
+const routes: Routes = [
+  {
+    path: "map",
+    component: MapComponent
+  },
+  {
+    path: "",
+    redirectTo: "/map",
+    pathMatch: "full"
+  }
+];
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: []
+  exports: [RouterModule],
+  imports: [
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
+  ]
 })
 export class AppRoutingModule {}
