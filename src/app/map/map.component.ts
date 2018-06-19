@@ -53,7 +53,7 @@ export class MapComponent implements OnInit {
         this.address = location.address;
         this.mapService.map = map;
 
-        this.mapService.updateMarkers(dataSample, map);
+        this.mapService.updateMarkers(dataSample);
       });
 
     let dataSample = [

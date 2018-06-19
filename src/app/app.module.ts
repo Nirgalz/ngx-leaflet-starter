@@ -8,6 +8,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatSidenavModule } from "@angular/material/sidenav";
 
 import { AppComponent } from "./app.component";
 import { NavigatorComponent } from "./navigator/navigator.component";
@@ -19,13 +20,18 @@ import { GeocodingService } from "./geocoding.service";
 
 import "leaflet";
 import "leaflet.vectorgrid";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
+import { SidebarComponent } from "./sidebar/sidebar.component";
+import { AppRoutingModule } from ".//app-routing.module";
 
 @NgModule({
   declarations: [
     NavigatorComponent,
     MapComponent,
     AppComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,12 @@ import "leaflet.vectorgrid";
     MatInputModule,
     MatIconModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    ServiceWorkerModule.register("/ngsw-worker.js", {
+      enabled: environment.production
+    }),
+    AppRoutingModule
   ],
   providers: [MapService, GeocodingService],
   bootstrap: [AppComponent]

@@ -103,8 +103,7 @@ export class MapService {
     marker.on("click", () => marker.remove());
   }
 
-  updateMarkers(markers, map) {
-    console.log(map);
+  updateMarkers(markers) {
     console.log(markers);
     for (let i = 0; i < markers.length; i++) {
       console.log(markers[i]);
@@ -122,7 +121,7 @@ export class MapService {
         .bindPopup(popup, {
           offset: L.point(12, 6)
         })
-        .addTo(map);
+        .addTo(this.map);
     }
   }
 }
